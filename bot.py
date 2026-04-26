@@ -5,7 +5,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 
 from config import settings
-from handlers import admin, booking, rules, start, stats
+from handlers import admin, booking, register, rules, start, stats
 from services.google_sheet_service import ensure_sheets
 from services.reminder_service import setup_scheduler
 
@@ -17,6 +17,7 @@ async def main():
     ensure_sheets()
     bot = Bot(token=settings.bot_token)
     dp = Dispatcher(storage=MemoryStorage())
+    dp.include_router(register.router)
     dp.include_router(start.router)
     dp.include_router(booking.router)
     dp.include_router(stats.router)
