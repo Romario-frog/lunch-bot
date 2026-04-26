@@ -1,1 +1,2 @@
-# placeholder
+# Заготовка під майбутній сайт/API.
+# Зараз основна логіка працює через Telegram bot + Google Sheets.
