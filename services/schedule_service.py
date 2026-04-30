@@ -95,7 +95,7 @@ def _token_variants(text: str) -> list[set[str]]:
 def _tokens_match(a: str, b: str) -> bool:
     if not a or not b:
         return False
-    # Roma ↔ Roman, Serhii ↔ Сергій — достатньо префікса 4+ символи
+ 
     if a == b:
         return True
     if len(a) >= 4 and len(b) >= 4 and (a.startswith(b[:4]) or b.startswith(a[:4])):
@@ -141,8 +141,7 @@ def resolve_schedule_name(full_name: str) -> str | None:
     """Повертає реальне ПІБ з листа schedule.
 
     Приклади:
-    - Roma Chobotar → Чоботар Роман
-    - Fomichov Serhii → Фомічов Сергій / Fomichov Serhii
+    -# Ivan Petrenko → Петренко Іван
     """
     values = _values()
     best_name = None
